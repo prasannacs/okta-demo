@@ -1,0 +1,80 @@
+[
+    {
+        "firstName" : "John",
+        "lastName" : "Doe",
+        "memberId" : 1001,
+        "custAcctMgr" : "Erica Smith"
+    },
+    {
+        "firstName" : "Jane",
+        "lastName" : "Smith",
+        "memberId" : 1002,
+        "custAcctMgr" : "Erica Smith"
+    },
+    {
+        "firstName" : "Wiley",
+        "lastName" : "Rogers",
+        "memberId" : 1003,
+        "custAcctMgr" : "Joe Sullivan"
+    },
+    {
+        "firstName" : "Peter",
+        "lastName" : "Jerlad",
+        "memberId" : 1004,
+        "custAcctMgr" : "Brain O'Mara"
+    },
+    {
+        "firstName" : "Andrew",
+        "lastName" : "Gerald",
+        "memberId" : 1005,
+        "custAcctMgr" : "Joe Sullivan"
+    },
+    {
+        "firstName" : "Jeff",
+        "lastName" : "Sterling",
+        "memberId" : 1006,
+        "custAcctMgr" : "Joe Sullivan"
+    },
+    {
+        "firstName" : "Jeff",
+        "lastName" : "Donahoe",
+        "memberId" : 1007,
+        "custAcctMgr" : "Brian O'Mara"
+    },
+    {
+        "firstName" : "Jack",
+        "lastName" : "Wins",
+        "memberId" : 1008,
+        "custAcctMgr" : "Erica Smith"
+    },
+    {
+        "firstName" : "Nicole",
+        "lastName" : "Ken",
+        "memberId" : 1009,
+        "custAcctMgr" : "Wesley James"
+    },
+    {
+        "firstName" : "Heath",
+        "lastName" : "Sers",
+        "memberId" : 1010,
+        "custAcctMgr" : "Wesley James"
+    },
+    {
+        "firstName" : "Brandon",
+        "lastName" : "Nosaka",
+        "memberId" : 1011,
+        "custAcctMgr" : "Jess Qu"
+    },
+    {
+        "firstName" : "Ryan",
+        "lastName" : "Knotts",
+        "memberId" : 1012,
+        "custAcctMgr" : "Jess Qu"
+    },
+    {
+        "firstName" : "Will",
+        "lastName" : "Path",
+        "memberId" : 1013,
+        "custAcctMgr" : "Jess Qu"
+    }
+]

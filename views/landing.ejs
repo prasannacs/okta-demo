@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=es6,Intl"></script>
+    <link rel="stylesheet" href="https://cdn01.boxcdn.net/platform/elements/4.4.0/en-US/explorer.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn01.boxcdn.net/platform/preview/2.14.1/en-US/preview.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+    <meta charset="UTF-8">
+    <title>ACME Portal</title>
+</head>
+
+<body>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6">
+                <h3>ACME Brokerage Portal</h3>
+            </div>
+            <div class="col-md-6">
+                <div class="row">
+                    <form method="get" action="/logout">
+                        <button type="submit">Log Out</button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-md-6" style="border: solid grey">
+                <h4>Hello!.. <%= name %></h4>
+                <h4>Username <%= username %></h4>
+            </div>
+            <div class="col-md-6" style="border: solid grey">
+                <img src="https://library.kissclipart.com/20180917/pvq/kissclipart-call-chat-email-clipart-telephone-call-email-onlin-7135751f1cf76271.png" alt="Smiley face" width="640" height="200">
+            </div>
+
+
+        </div>
+
+        <div class="row">
+            <div id="explorer" class="col-md-6" style="border: solid grey">
+                <h5>Your Document Vault</h5>
+
+                <div class="application-container" style="float: left; height: 400px; width: 90%;"></div>
+                <!-- Latest version of the explorer js for your locale -->
+                <script src="https://cdn01.boxcdn.net/platform/elements/10.1.0/en-US/explorer.js"></script>
+                <script>
+                    var folderId = '0';
+                    var boxAccessToken = '<%= boxAccessToken %>';
+                    var contentExplorer = new Box.ContentExplorer();
+                    contentExplorer.show(folderId, boxAccessToken, {
+                        container: '.application-container'
+                    });
+                </script>
+            </div>
+            <div class="col-md-6" style="border: solid grey">
+                <h5>Access 1099 Info</h5>
+                <script>
+                    var id_token = '<%= id_token %>';
+                    $(document).ready(function () {
+                        $("button").click(function () {
+                            $.post("/api",
+                                {
+                                    id_token: id_token,
+                                    taxId: $('#taxId').val()
+                                },
+                                function (data, status) {
+                                    //alert("Data: " + data + "\nStatus: " + status);
+                                    $("#ajar").html(data);
+                                });
+                        });
+                    });
+                </script>
+
+                <label for="taxId">Tax ID:</label>
+                <input type="text" id="taxId" name="taxId">
+                <button>OK</button>
+                <h5> Gross Profit
+                    <div id="ajar">
+                    </div>
+                </h5>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

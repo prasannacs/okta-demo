@@ -1,0 +1,24 @@
+{
+  "name": "registration",
+  "version": "1.0.0",
+  "description": "Customer Registration Portal",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@okta/jwt-verifier": "^1.0.0",
+    "@okta/oidc-middleware": "^4.0.0",
+    "body-parser": "^1.19.0",
+    "box-node-sdk": "^1.31.0",
+    "cors": "^2.8.5",
+    "ejs": "^3.0.1",
+    "express": "^4.17.1",
+    "express-session": "^1.17.0",
+    "njwt": "^0.4.0",
+    "request": "^2.88.2",
+    "secure-random": "^1.1.2"
+  }
+}
