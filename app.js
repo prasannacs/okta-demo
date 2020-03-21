@@ -92,8 +92,15 @@ app.get("/login", oidc.ensureAuthenticated(), (req, res) => {
   });
 });
 
+app.post('/forces-logout', oidc.forceLogoutAndRevoke(), (req, res) => {
+  // Nothing here will execute, after the redirects the user will end up wherever the `routes.logoutCallback.afterCallback` specifies (default `/`)
+
+});
+
 app.get("/logout", oidc.ensureAuthenticated(), (req, res) => {
-  res.render("logout.ejs");
+  req.logout();
+  res.redirect('/');
+  //res.render("logout.ejs");
 });
 
 app.get("/api1", authenticationRequired1, (req, res) => {
