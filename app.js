@@ -103,15 +103,6 @@ app.get("/logout", oidc.ensureAuthenticated(), (req, res) => {
   //res.render("logout.ejs");
 });
 
-app.get("/api1", authenticationRequired1, (req, res) => {
-  res.json({
-    messages: [
-      {
-        grossProfit: "32,345"
-      }
-    ]
-  });
-});
 
 app.post("/api", authenticationRequired, (req, res) => {});
 
@@ -148,34 +139,3 @@ function authenticationRequired(req, res, next) {
     });
 }
 
-function authenticationRequired1(req, res, next) {
-  //  console.log("Request Body ",req.body);
-  var taxId = req.body.taxId;
-
-  var oktaJwtVerifier = new OktaJwtVerifier({
-    issuer: "https://dev-348986.okta.com/oauth2/aus403kadJ3g9dwDs4x6",
-    assertClaims: {
-      taxID: taxId
-    } // required
-  });
-
-  const authHeader = req.headers.authorization || "";
-  const match = authHeader.match(/Bearer (.+)/);
-
-  if (!match) {
-    res.status(401);
-    return next("Unauthorized");
-  }
-
-  const accessToken = match[1];
-
-  return oktaJwtVerifier
-    .verifyAccessToken(accessToken, clientId)
-    .then(jwt => {
-      req.jwt = jwt;
-      next();
-    })
-    .catch(err => {
-      res.status(200).send(err.message);
-    });
-}
